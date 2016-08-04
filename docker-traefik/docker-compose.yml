@@ -1,0 +1,15 @@
+version: '2'
+services:
+  traefik:
+    build: ./traefik
+    networks:
+      - traefik
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+networks:
+  traefik:
+    external:
+      name: traefik
